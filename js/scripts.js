@@ -3,10 +3,9 @@ function toPigLatin(e) {
   //define text
   text = document.getElementById('english-input').value;
   const inputArray = text.split(" ");
-  let pigOutArray = [];
   console.log('inputArray', inputArray)
-  vowelStart(text);
-  
+  vowelStart(inputArray);
+}
 //grab input & declare variables
   // qu permutations
   //quick -> ickquay
@@ -22,18 +21,21 @@ function toPigLatin(e) {
 
 
 //Test: "It will add 'way' to the end of words that begin with a vowel."
-function vowelStart(text) {
+function vowelStart(inputArray) {
+let pigOutArray = [];
 for (let i = 0; i <= inputArray.length; i++) {
-  if (/^[aeiou]/gi.test(inputArray.value));
-  pigOutArray.push(inputArray + "way");
-  console.log('loop output', pigOutArray);
+  if (/^[aeiou]/gi.test(inputArray[i])) {
+    pigOutArray.push(inputArray[i] + "way");
+    console.log('loop output', pigOutArray);
+  } else {
+    pigOutArray.push(inputArray[i]);
+  }
   }
 }
-
 //concat + add 'ay'
   //elif string starts with vowels (DO NOT use 'y' as vowel)
   //add 'way'
-}
+
 
 window.addEventListener("load", function() {
   document.querySelector("form#pig-latin").addEventListener("submit", toPigLatin);
